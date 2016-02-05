@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 feature 'User create a recipe' do
-
   scenario 'successfully' do
     login
 
-    recipe = build(:recipe)
+    recipe = create(:recipe)
 
     visit new_recipe_path
 
@@ -18,14 +17,15 @@ feature 'User create a recipe' do
     choose  'recipe_difficulty_easy'
     fill_in 'recipe[ingredients]',    with: recipe.ingredients
     fill_in 'recipe[steps]',          with: recipe.steps
-    page.attach_file('recipe[photo]', Rails.root + 'app/assets/images/no-photo.jpg')
+    page.attach_file('recipe[photo]',
+                     Rails.root + 'app/assets/images/no-photo.jpg')
 
     click_on 'submit'
 
     expect(page).to have_content recipe.name
     expect(page).to have_content recipe.kitchen.name
     expect(page).to have_content recipe.food_type.name
-    expect(page).to have_content recipe.preferences.name
+    expect(page).to have_content recipe.preference.name
 
     expect(page).to have_content recipe.serves
     expect(page).to have_content recipe.time
@@ -37,18 +37,17 @@ feature 'User create a recipe' do
 
   scenario 'user unlogger' do
     visit new_recipe_path
-    expect(page).to have_content t('login')
+    expect(page).to have_content 'Log'
   end
 
   scenario 'unsuccessfully, blank fields' do
     login
 
-    recipe = build(:recipe)
-
     visit new_recipe_path
 
     click_on 'submit'
 
-    expect(page).to have_content t('erro')
+    expect(current_path).to eq new_recipe_path
+    expect(page).to have_content "can't be blank"
   end
 end

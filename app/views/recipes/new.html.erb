@@ -1,1 +1,10 @@
+<div id="errors">
+  <% if @recipe.errors.any? %>
+    <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 <%= render 'form' %>
