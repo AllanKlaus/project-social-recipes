@@ -11,56 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205183013) do
-
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string   "name"
-    t.string   "location"
-    t.string   "mail"
-    t.string   "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20160205191500) do
 
   create_table "food_types", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
-
-  create_table "jobs", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "location"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.boolean  "featured"
-    t.integer  "company_id"
-    t.integer  "category_id"
-  end
-
-  add_index "jobs", ["category_id"], name: "index_jobs_on_category_id"
-  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id"
 
   create_table "kitchens", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "preferences", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.integer  "kitchen_id"
+    t.integer  "food_type_id"
+    t.integer  "preference_id"
+    t.integer  "serves"
+    t.integer  "time"
+    t.string   "difficulty"
+    t.text     "ingredients"
+    t.text     "steps"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
+
+  add_index "recipes", ["food_type_id"], name: "index_recipes_on_food_type_id"
+  add_index "recipes", ["kitchen_id"], name: "index_recipes_on_kitchen_id"
+  add_index "recipes", ["preference_id"], name: "index_recipes_on_preference_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

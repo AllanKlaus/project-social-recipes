@@ -1,0 +1,47 @@
+<%= form_for(@recipe) do |f| %>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :kitchen_id %>
+  <%= f.collection_select :kitchen_id, @kitchens, :id, :name, {}, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :food_type_id %>
+  <%= f.collection_select :food_type_id, @food_types, :id, :name, {}, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :preference_id %>
+  <%= f.collection_select :preference_id, @preferences, :id, :name, {}, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :serves %>
+  <%= f.number_field :serves, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :time %>
+  <%= f.number_field :time, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <% Recipe::DIFFICULTY.each do |difficulty| %>
+    <%= f.radio_button(:difficulty, difficulty, class: 'form-control') %>
+    <%= f.label(:difficulty_easy, difficulty) %>
+  <% end %>
+</div>
+<div class="form-group">
+  <%= f.label :ingredients %>
+  <%= f.text_area :ingredients, size: "60x12", class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :steps %>
+  <%= f.text_area :steps, size: "60x12", class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :photo %>
+  <%= f.file_field :photo, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.submit 'submit', id: 'submit' %>
+</div>
+<% end %>

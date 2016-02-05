@@ -12,10 +12,10 @@ feature 'User create a recipe' do
     fill_in 'recipe[name]',           with: recipe.name
     select recipe.kitchen.name,       from: 'recipe[kitchen_id]'
     select recipe.food_type.name,     from: 'recipe[food_type_id]'
-    select recipe.preferences.name,   from: 'recipe[preferences_id]'
+    select recipe.preference.name,    from: 'recipe[preference_id]'
     fill_in 'recipe[serves]',         with: recipe.serves
     fill_in 'recipe[time]',           with: recipe.time
-    fill_in 'recipe[difficulty]',     with: recipe.difficulty
+    choose  'recipe_difficulty_easy'
     fill_in 'recipe[ingredients]',    with: recipe.ingredients
     fill_in 'recipe[steps]',          with: recipe.steps
     page.attach_file('recipe[photo]', Rails.root + 'app/assets/images/no-photo.jpg')
