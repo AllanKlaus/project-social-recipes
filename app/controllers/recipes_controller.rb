@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :get_recipe, only: [:show]
+  before_action :set_recipe, only: [:show]
   before_action :set_collections, only: [:new, :create]
 
   def index
@@ -16,17 +16,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create(recipe_params)
-    # puts @recipe.errors
-    # byebug
-    redirect_to @recipe
-    # if @recipe.save()
-    #   flash[:success] = 'Success: Job created successfully'
-    #   redirect_to @recipe
-    # else
-    #   byebug
-    #   flash[:warning] = 'Warning: All fields are necessary'
-    #   render :new
-    # end
+    respond_with @recipe
   end
 
   private
@@ -37,7 +27,7 @@ class RecipesController < ApplicationController
                                    :ingredients, :steps, :photo)
   end
 
-  def get_recipe
+  def set_recipe
     @recipe = Recipe.find(params[:id])
   end
 

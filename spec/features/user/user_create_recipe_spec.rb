@@ -37,7 +37,7 @@ feature 'User create a recipe' do
 
   scenario 'user unlogger' do
     visit new_recipe_path
-    expect(page).to have_content 'Log'
+    expect(page).to have_content I18n.t('generic.login')
   end
 
   scenario 'unsuccessfully, blank fields' do
@@ -47,7 +47,7 @@ feature 'User create a recipe' do
 
     click_on 'submit'
 
-    expect(current_path).to eq new_recipe_path
-    expect(page).to have_content "can't be blank"
+    # expect(page).to have_content "can't be blank"
+    expect(page).to have_content I18n.t('errors.messages.blank')
   end
 end
