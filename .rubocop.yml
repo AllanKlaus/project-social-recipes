@@ -1,0 +1,19 @@
+Documentation:
+  Enabled: false
+
+AllCops:
+  Rails:
+    Enabled: true
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'spec/*_helper.rb'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'

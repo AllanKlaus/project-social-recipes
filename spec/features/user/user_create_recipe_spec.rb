@@ -1,0 +1,54 @@
+require 'rails_helper'
+
+feature 'User create a recipe' do
+
+  scenario 'successfully' do
+    login
+
+    recipe = build(:recipe)
+
+    visit new_recipe_path
+
+    fill_in 'recipe[name]',           with: recipe.name
+    select recipe.kitchen.name,       from: 'recipe[kitchen_id]'
+    select recipe.food_type.name,     from: 'recipe[food_type_id]'
+    select recipe.preferences.name,   from: 'recipe[preferences_id]'
+    fill_in 'recipe[serves]',         with: recipe.serves
+    fill_in 'recipe[time]',           with: recipe.time
+    fill_in 'recipe[difficulty]',     with: recipe.difficulty
+    fill_in 'recipe[ingredients]',    with: recipe.ingredients
+    fill_in 'recipe[steps]',          with: recipe.steps
+    page.attach_file('recipe[photo]', Rails.root + 'app/assets/images/no-photo.jpg')
+
+    click_on 'submit'
+
+    expect(page).to have_content recipe.name
+    expect(page).to have_content recipe.kitchen.name
+    expect(page).to have_content recipe.food_type.name
+    expect(page).to have_content recipe.preferences.name
+
+    expect(page).to have_content recipe.serves
+    expect(page).to have_content recipe.time
+    expect(page).to have_content recipe.difficulty
+    expect(page).to have_content recipe.ingredients
+    expect(page).to have_content recipe.steps
+    expect(page).to have_css("img[src*='no-photo.jpg']")
+  end
+
+  scenario 'user unlogger' do
+    visit new_recipe_path
+    expect(page).to have_content t('login')
+  end
+
+  scenario 'unsuccessfully, blank fields' do
+    login
+
+    recipe = build(:recipe)
+
+    visit new_recipe_path
+
+    click_on 'submit'
+
+    expect(page).to have_content t('erro')
+  end
+end

@@ -1,0 +1,13 @@
+module FunctionsMacros
+  def login(user = nil)
+    user ||= create(:user)
+
+    visit new_user_session_path
+
+    fill_in 'user[email]',    with: user.email
+    fill_in 'user[password]', with: set_password
+    click_on 'Log in'
+
+    user
+  end
+end
