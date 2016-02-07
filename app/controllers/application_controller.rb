@@ -1,6 +1,8 @@
 require 'application_responder'
 
 class ApplicationController < ActionController::Base
+  NUMBER_TO_LIST = 20
+
   self.responder = ApplicationResponder
   respond_to :html
 
