@@ -4,8 +4,12 @@ feature 'User see a recipes' do
   scenario 'on home' do
     repeat_times = 20
     recipe_old = create_list(:recipe, repeat_times)
-    recipe_favorites = create_list(:recipe, repeat_times, favorite: 20)
+    recipe_favorites = create_list(:recipe, repeat_times)
     recipe = create_list(:recipe, repeat_times)
+
+    repeat_times.times do |index|
+      create_list(:favorite, index, recipe: recipe_favorites[index])
+    end
 
     visit root_path
 
