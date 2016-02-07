@@ -3,6 +3,7 @@ class Recipe < ActiveRecord::Base
   belongs_to :food_type
   belongs_to :preference
   belongs_to :user
+  has_many   :favorites
   validates :name, :kitchen_id, :food_type_id, :preference_id, :serves, :time,
             :difficulty, :ingredients, :steps, presence: true
 

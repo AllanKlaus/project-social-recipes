@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :recipes do
     collection do
       get 'my'
+      get 'favorite'
+    end
+
+    member do
+      get 'add_favorite'
     end
   end
   resources :kitchens, except: :destroy

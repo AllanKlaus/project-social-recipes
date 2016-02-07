@@ -10,3 +10,6 @@
 <span><%= @recipe.ingredients %></span>
 <span><%= @recipe.steps %></span>
 <span><%= image_tag @recipe.photo.url(:thumb) %></span>
+<% if user_signed_in? %>
+<span><%= link_to t('generic.add_favorite_list'), add_favorite_recipe_path(@recipe), id: 'favorite' %></span>
+<%end %>

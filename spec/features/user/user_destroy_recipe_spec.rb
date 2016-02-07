@@ -13,7 +13,6 @@ feature 'User destroy his recipe' do
   end
 
   scenario 'user unlogger' do
-    recipe = create(:recipe)
     visit my_recipes_path
     expect(page).to have_content I18n.t('generic.login')
   end
