@@ -1,0 +1,13 @@
+<div class="row">
+  <aside class="">
+
+  </aside>
+  <section class="">
+    <h2><%= t('last_recipes') %></h2>
+    <%= render partial: "recipe", collection: @recipes, as: :item %>
+  </section>
+  <section class="">
+    <h2><%= t('favorite_recipes') %></h2>
+    <%= render partial: "recipe", collection: @recipes_favorites, as: :item %>
+  </section>
+</div>

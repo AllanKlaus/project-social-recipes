@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :recipe do
-    name          "Recipe #{FFaker::Name.name}"
+    name
     kitchen
     food_type
     preference
@@ -9,5 +9,11 @@ FactoryGirl.define do
     difficulty    'Easy'
     ingredients   FFaker::Lorem.paragraph(2)
     steps         FFaker::Lorem.paragraph(2)
+    favorite      '10'
+    user
+  end
+
+  sequence :name do |n|
+    "Recipe #{n} #{FFaker::Name.name}"
   end
 end

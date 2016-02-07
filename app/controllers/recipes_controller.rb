@@ -22,9 +22,10 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
+    user = { user: current_user }
     params.require(:recipe).permit(:name, :kitchen_id, :food_type_id,
                                    :preference_id, :serves, :time, :difficulty,
-                                   :ingredients, :steps, :photo)
+                                   :ingredients, :steps, :photo).merge(user)
   end
 
   def set_recipe
