@@ -2,34 +2,29 @@ require 'rails_helper'
 
 feature 'User see a recipes' do
   scenario 'on home' do
-    recipe_old = create_list(:recipe, 3)
-    recipe_favorites = create_list(:recipe, 3, favorite: 20)
-    recipe = create_list(:recipe, 3)
+    repeat_times = 20
+    recipe_old = create_list(:recipe, repeat_times)
+    recipe_favorites = create_list(:recipe, repeat_times, favorite: 20)
+    recipe = create_list(:recipe, repeat_times)
 
     visit root_path
 
-    expect(page).to have_content recipe[0].name
-    expect(page).to have_content recipe[0].preference.name
-    expect(page).to have_content recipe[0].food_type.name
-    expect(page).to have_content recipe[0].kitchen.name
-    expect(page).to have_content recipe[0].difficulty
 
-    expect(page).to have_content recipe[1].name
-    expect(page).to have_content recipe[2].name
+    repeat_times.times do |index|
+      expect(page).to have_content recipe[index].name
+      expect(page).to have_content recipe[index].preference.name
+      expect(page).to have_content recipe[index].food_type.name
+      expect(page).to have_content recipe[index].kitchen.name
+      expect(page).to have_content recipe[index].difficulty
 
-    expect(page).to_not have_content recipe_old[0].name
-    expect(page).to_not have_content recipe_old[1].name
-    expect(page).to_not have_content recipe_old[2].name
+      expect(page).to_not have_content recipe_old[index].name
 
-    expect(page).to have_content recipe_favorites[0].name
-    expect(page).to have_content recipe_favorites[0].preference.name
-    expect(page).to have_content recipe_favorites[0].food_type.name
-    expect(page).to have_content recipe_favorites[0].kitchen.name
-    expect(page).to have_content recipe_favorites[0].difficulty
-
-    expect(page).to have_content recipe_favorites[1].name
-    expect(page).to have_content recipe_favorites[2].name
-    # expect(page).to have_css("img[src*='no-photo.jpg']")
+      expect(page).to have_content recipe_favorites[index].name
+      expect(page).to have_content recipe_favorites[index].preference.name
+      expect(page).to have_content recipe_favorites[index].food_type.name
+      expect(page).to have_content recipe_favorites[index].kitchen.name
+      expect(page).to have_content recipe_favorites[index].difficulty
+    end
   end
 
   scenario 'on recipe_path' do
