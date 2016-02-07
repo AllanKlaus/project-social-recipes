@@ -9,7 +9,6 @@ feature 'User see a recipes' do
 
     visit root_path
 
-
     repeat_times.times do |index|
       expect(page).to have_content recipe[index].name
       expect(page).to have_content recipe[index].preference.name
