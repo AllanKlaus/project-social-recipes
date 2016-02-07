@@ -47,7 +47,6 @@ feature 'User create a recipe' do
 
     click_on 'submit'
 
-    # expect(page).to have_content "can't be blank"
     expect(page).to have_content I18n.t('errors.messages.blank')
   end
 end
