@@ -22,3 +22,6 @@
 en:
   generic:
     login: "Login"
+    kitchens: "Kitchens"
+    food_types: "Food types"
+    preferences: "Preferences"

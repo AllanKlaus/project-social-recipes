@@ -1,6 +1,17 @@
 <div class="row">
   <aside class="">
-
+    <h2><%= t('kitchens') %></h2>
+    <ul>
+      <%= render partial: "side_menu", collection: @kitchens, as: :item %>
+    </ul>
+    <h2><%= t('food_types') %></h2>
+    <ul>
+      <%= render partial: "side_menu", collection: @food_types, as: :item %>
+    </ul>
+    <h2><%= t('preferences') %></h2>
+    <ul>
+      <%= render partial: "side_menu", collection: @preferences, as: :item %>
+    </ul>
   </aside>
   <section class="">
     <h2><%= t('last_recipes') %></h2>
