@@ -1,0 +1,17 @@
+<div id="errors">
+  <% if @kitchen.errors.any? %>
+    <ul>
+      <% @kitchen.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+<%= form_for(@kitchen) do |f| %>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+</div><div class="form-group">
+  <%= f.submit 'submit', id: 'submit' %>
+</div>
+<% end %>

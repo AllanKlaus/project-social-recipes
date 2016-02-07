@@ -17,7 +17,7 @@ feature 'Admin create kitchens' do
 
   scenario 'unlogged admin' do
     visit new_kitchen_path
-    expect(page).to have_content  I18n.t('generic.login')
+    expect(page).to have_content I18n.t('generic.login')
   end
 
   scenario 'unsuccessfully, blank fields' do
@@ -35,6 +35,6 @@ feature 'Admin create kitchens' do
 
     visit new_kitchen_path
 
-    expect(page).to have_content I18n.t('generic.login')
+    expect(current_path).to eq root_path
   end
 end
