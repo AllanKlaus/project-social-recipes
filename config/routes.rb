@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :recipes, except: :destroy
   resources :kitchens, except: :destroy
   resources :food_types, except: :destroy
+  resources :preferences, except: :destroy
 end
