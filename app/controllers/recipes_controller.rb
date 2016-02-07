@@ -30,8 +30,13 @@ class RecipesController < ApplicationController
     respond_with @recipe
   end
 
+  def destroy
+    @recipe.destroy
+    redirect_to my_recipes_path
+  end
+
   def my
-    #IMPLEMENT LATER A LIST OF ALL RECIPES OF THE LOGGER USER
+    @recipes = current_user.recipes
   end
 
   private
