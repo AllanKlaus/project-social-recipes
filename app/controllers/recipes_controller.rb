@@ -1,7 +1,10 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_recipe, only: [:show]
-  before_action :set_collections, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :my]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    authenticate_owner_user!(@recipe, my_recipes_path)
+  end
+  before_action :set_collections, only: [:new, :create, :edit, :update]
 
   def index
     @recipes = Recipe.all
@@ -17,6 +20,18 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.create(recipe_params)
     respond_with @recipe
+  end
+
+  def edit
+  end
+
+  def update
+    @recipe.update(recipe_params)
+    respond_with @recipe
+  end
+
+  def my
+    #IMPLEMENT LATER A LIST OF ALL RECIPES OF THE LOGGER USER
   end
 
   private

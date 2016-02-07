@@ -33,7 +33,7 @@ feature 'User edit his recipe' do
     expect(page).to have_content I18n.t('generic.login')
   end
 
-  scenario 'unsuccessfully, blank fields' do
+  scenario "unsuccessfully, user try to edit a job that don't belong to him" do
     user = login
 
     recipe = create(:recipe)
