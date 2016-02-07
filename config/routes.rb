@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :recipes, except: :destroy
   resources :kitchens, except: :destroy
+  resources :food_types, except: :destroy
 end

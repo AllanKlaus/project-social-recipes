@@ -20,11 +20,6 @@ class KitchensController < ApplicationController
 
   private
 
-  def authenticate_admin!
-    authenticate_user!
-    current_user.admin ||= sign_out_and_redirect(current_user)
-  end
-
   def kitchen_params
     params.require(:kitchen).permit(:name)
   end
