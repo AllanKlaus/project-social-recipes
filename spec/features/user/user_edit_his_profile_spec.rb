@@ -4,6 +4,7 @@ feature 'User edit his profile' do
   scenario 'successfully' do
     user = login
 
+    create_list(:kitchen, 5)
     visit edit_user_path(user)
     expect(page).to have_content user.name
 
@@ -13,9 +14,10 @@ feature 'User edit his profile' do
     fill_in 'user[password]', with: user.password
     fill_in 'user[facebook]', with: user.facebook
     fill_in 'user[twitter]',  with: user.twitter
-    check   'user_kitchens'
+    check   'kitchen_1'
+    check   'kitchen_2'
 
-    click_ok 'submit'
+    click_on 'submit'
 
     expect(page).to have_content user.name
     expect(page).to have_content user.city
@@ -23,8 +25,8 @@ feature 'User edit his profile' do
 
   scenario 'try to edit another user profile' do
     user = login
-    
-    visit user_path(create(:user))
+    create_list(:kitchen, 5)
+    visit edit_user_path(create(:user))
     expect(page).to have_content user.name
 
     fill_in 'user[name]',     with: user.name
@@ -33,9 +35,9 @@ feature 'User edit his profile' do
     fill_in 'user[password]', with: user.password
     fill_in 'user[facebook]', with: user.facebook
     fill_in 'user[twitter]',  with: user.twitter
-    check   'user_kitchens'
+    check   'kitchen_1'
 
-    click_ok 'submit'
+    click_on 'submit'
 
     expect(page).to have_content user.name
     expect(page).to have_content user.city
