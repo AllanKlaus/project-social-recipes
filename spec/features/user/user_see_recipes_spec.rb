@@ -8,7 +8,7 @@ feature 'User see a recipes' do
     recipe = create_list(:recipe, repeat_times)
 
     repeat_times.times do |index|
-      create_list(:favorite, index, recipe: recipe_favorites[index])
+      create_list(:favorite, index + 1, recipe: recipe_favorites[index])
     end
 
     visit root_path

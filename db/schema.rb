@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207223207) do
+ActiveRecord::Schema.define(version: 20160208012518) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20160207223207) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "favorite"
     t.integer  "user_id"
   end
 

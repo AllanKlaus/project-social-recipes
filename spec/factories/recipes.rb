@@ -9,7 +9,6 @@ FactoryGirl.define do
     difficulty    'Easy'
     ingredients   FFaker::Lorem.paragraph(2)
     steps         FFaker::Lorem.paragraph(2)
-    favorite      '10'
     user
   end
 
