@@ -26,5 +26,5 @@ en:
     food_types: "Food types"
     preferences: "Preferences"
     add_favorite_list: "Add to favorite list"
-    facebook: "Facebook"
-    twitter: "Twitter"
+    facebook: 'Facebook'
+    twitter: 'Twitter'
