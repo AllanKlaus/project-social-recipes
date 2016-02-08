@@ -1,0 +1,19 @@
+<div class="row">
+  <aside class="">
+  </aside>
+  <section class="">
+    <h1><%= "#{t('generic.profile')} #{@user.name}" %></h1>
+    <span><%= @user.email %></span>
+    <span><%= @user.city %></span>
+    <% unless @user.facebook.nil? %>
+      <%= t('generic.facebook') %>
+      <span><%= @user.facebook %></span>
+    <% end %>
+    <% unless @user.twitter.nil? %>
+      <%= t('generic.twitter') %>
+      <span><%= @user.twitter %></span>
+    <% end %>
+    <h2><%= "#{t('generic.receitas')} #{@user.name}" %></h2>
+    <%= render partial: 'recipe', collection: @user.recipes, as: :item %>
+  </section>
+</div>
