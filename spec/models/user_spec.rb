@@ -4,9 +4,11 @@ describe 'User send mail' do
   context 'user send recipe' do
     it 'send a recipe' do
       user = create(:user)
-      info = { mail: 'allan_klaus@globo.com' }
-
-      expect { user.send_recipe(self, info) }.to change { ActionMailer::Base.deliveries.count }.by(1)
+      recipe = create(:recipe)
+      friend = { name: 'Klaus', mail: 'allan_klaus@globo.com',
+                 subject: I18n.t('mail.subject.send_recipe') }
+      expect { user.send_recipe(user, recipe, friend) }.to
+      change { ActionMailer::Base.deliveries.count }.by(1)
     end
   end
 end

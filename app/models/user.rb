@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
   has_many :recipes
   has_many :favorites
   has_and_belongs_to_many :kitchens
+
+  def send_recipe(user, recipe, friend)
+    # byebug
+    UserNotifier.send_recipe(user, recipe, friend).deliver_now
+  end
 end

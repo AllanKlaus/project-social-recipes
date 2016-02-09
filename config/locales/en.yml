@@ -45,3 +45,7 @@ en:
 
     menu:
       options: 'Options'
+
+  mail:
+    subject:
+      send_recipe: 'A friend recommend you a recipe'
