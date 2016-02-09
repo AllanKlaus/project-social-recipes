@@ -9,48 +9,48 @@
 </div>
 <%= form_for(@recipe) do |f| %>
 <div class="form-group">
-  <%= f.label :name %>
+  <%= f.label :name, t('generic.name') %>
   <%= f.text_field :name, class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :kitchen_id %>
+  <%= f.label :kitchen_id, t('generic.kitchen') %>
   <%= f.collection_select :kitchen_id, @kitchens, :id, :name, {}, class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :food_type_id %>
+  <%= f.label :food_type_id, t('generic.food_type') %>
   <%= f.collection_select :food_type_id, @food_types, :id, :name, {}, class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :preference_id %>
+  <%= f.label :preference_id, t('generic.preference') %>
   <%= f.collection_select :preference_id, @preferences, :id, :name, {}, class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :serves %>
+  <%= f.label :serves, t('generic.serves') %>
   <%= f.number_field :serves, class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :time %>
+  <%= f.label :time, t('generic.time') %>
   <%= f.number_field :time, class: 'form-control' %>
 </div>
 <div class="form-group">
   <% Recipe::DIFFICULTY.each do |difficulty| %>
-    <%= f.radio_button(:difficulty, difficulty, class: 'form-control') %>
-    <%= f.label(:difficulty_easy, difficulty) %>
+    <%= f.radio_button(:difficulty, difficulty) %>
+    <%= f.label(:difficulty, t("generic.#{difficulty}")) %>
   <% end %>
 </div>
 <div class="form-group">
-  <%= f.label :ingredients %>
+  <%= f.label :ingredients, t('generic.ingredients') %>
   <%= f.text_area :ingredients, size: "60x12", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :steps %>
+  <%= f.label :steps, t('generic.steps') %>
   <%= f.text_area :steps, size: "60x12", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :photo %>
+  <%= f.label :photo, t('generic.photo') %>
   <%= f.file_field :photo, class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.submit 'submit', id: 'submit' %>
+  <%= f.submit t('generic.submit'), id: 'submit', class: 'btn btn-primary' %>
 </div>
 <% end %>

@@ -5,9 +5,5 @@ class HomeController < ApplicationController
                                .group(:recipe_id)
                                .limit(NUMBER_TO_LIST)
                                .order("COUNT('recipes'.'id') DESC")
-
-    @kitchens = Kitchen.all.order(name: :asc)
-    @food_types = FoodType.all.order(name: :asc)
-    @preferences = Preference.all.order(name: :asc)
   end
 end

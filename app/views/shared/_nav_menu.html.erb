@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand"><%= t('generic.social_recipes') %></a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+        <li><%= link_to t('generic.menu.home'), root_path %></li>
+        <li><%= render 'shared/search' %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><%= t('generic.menu.options') %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if user_signed_in? %>
+              <li><%= link_to t('generic.my_recipes'), my_recipes_path %></li>
+              <li><%= link_to t('generic.my_favorite_recipes'), favorite_recipes_path %></li>
+              <li><%= link_to t('generic.add_recipe'), new_recipe_path %></li>
+              <li class="divider" role="separator"></li>
+              <li><%= link_to t('generic.my_profile'), user_path(current_user) %></li>
+              <li><%= link_to t('generic.edit_profile'), edit_user_path(current_user) %></li>
+              <li><%= link_to t('generic.log_out'), destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to t('generic.sign_in'), new_user_session_path %></li>
+              <li><%= link_to t('generic.sign_up'), new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

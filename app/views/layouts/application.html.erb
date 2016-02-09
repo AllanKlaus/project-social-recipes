@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Project Social Recipes</title>
+  <title><%= t('generic.project_name') %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body role="document">
+  <%= render 'shared/nav_menu' %>
+  <div class="container theme-showcase">
+    <div class="row">
+      <aside class="col-md-3">
+        <h2><%= t('kitchens') %></h2>
+        <ul>
+          <%= render partial: 'shared/side_menu', collection: @side_kitchens, as: :item %>
+        </ul>
+        <h2><%= t('food_types') %></h2>
+        <ul>
+          <%= render partial: 'shared/side_menu', collection: @side_food_types, as: :item %>
+        </ul>
+        <h2><%= t('preferences') %></h2>
+        <ul>
+          <%= render partial: 'shared/side_menu', collection: @side_preferences, as: :item %>
+        </ul>
+      </aside>
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
 </body>
 </html>

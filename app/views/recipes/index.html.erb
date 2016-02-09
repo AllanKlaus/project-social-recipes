@@ -1,0 +1,4 @@
+<h1><%= t('generic.recipes') %></h1>
+<div class="row">
+  <%= render partial: 'shared/recipes', collection: @recipes, as: :item %>
+</div>

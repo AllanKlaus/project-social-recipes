@@ -1,1 +1,2 @@
-<%= render partial: 'my_recipe', collection: @recipes, as: :item %>
+<h1><%= t('generic.my_favorite_recipes') %></h1>
+<%= render partial: 'shared/recipes', collection: @recipes, as: :item %>

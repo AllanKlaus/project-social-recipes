@@ -1,6 +1,7 @@
 require 'application_responder'
 
 class ApplicationController < ActionController::Base
+  before_action :side_menu
   NUMBER_TO_LIST = 20
 
   self.responder = ApplicationResponder
@@ -11,6 +12,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   protected
+
+  def side_menu
+    @side_kitchens = Kitchen.all.order(name: :asc)
+    @side_food_types = FoodType.all.order(name: :asc)
+    @side_preferences = Preference.all.order(name: :asc)
+  end
 
   def authenticate_admin!
     authenticate_user!

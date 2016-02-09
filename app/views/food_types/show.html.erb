@@ -1,1 +1,4 @@
-<span><%= @food_type.name %></span>
+<h1><%= @food_type.name %></h1>
+<div class="row">
+  <%= render partial: 'shared/recipes', collection: @recipes, as: :item %>
+</div>

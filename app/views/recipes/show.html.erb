@@ -1,15 +1,36 @@
-<span><%= @recipe.name %></span>
-<span><%= @recipe.user.name %></span>
-<span><%= @recipe.kitchen.name %></span>
-<span><%= @recipe.food_type.name %></span>
-<span><%= @recipe.preference.name %></span>
-<span><%= @recipe.serves %></span>
-<span><%= @recipe.time %></span>
-<span><%= @recipe.difficulty %></span>
-<span><%= @recipe.time %></span>
-<span><%= @recipe.ingredients %></span>
-<span><%= @recipe.steps %></span>
-<span><%= image_tag @recipe.photo.url(:thumb) %></span>
-<% if user_signed_in? %>
-<span><%= link_to t('generic.add_favorite_list'), add_favorite_recipe_path(@recipe), id: 'favorite' %></span>
-<%end %>
+<div class="row">
+  <div class="col-md-6">
+    <h1><%= @recipe.name %></h1>
+    <p><strong><%= t('generic.send_by') %>: </strong><%= link_to @recipe.user.name, user_path(@recipe.user) %> </p>
+    <p><strong><%= t('generic.kitchen') %>: </strong><%= @recipe.kitchen.name %></p>
+    <p><strong><%= t('generic.food_type') %>: </strong><%= @recipe.food_type.name %></p>
+    <p><strong><%= t('generic.preference') %>: </strong><%= @recipe.preference.name %></p>
+    <p><strong><%= t('generic.serves') %>: </strong><%= @recipe.serves %></p>
+    <p><strong><%= t('generic.prepare_time') %>: </strong><%= @recipe.time %></p>
+    <p><strong><%= t('generic.difficulty') %>: </strong><%= @recipe.difficulty %></p>
+  </div>
+  <div class="col-md-6">
+    <p><%= image_tag @recipe.photo.url(:thumb) %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <h2><%= t('generic.ingredients') %></h2>
+      <%= @recipe.ingredients %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p>
+      <h2><%= t('generic.steps') %></h2>
+      <%= @recipe.steps %>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <% if user_signed_in? %>
+      <p><%= link_to t('generic.add_favorite_list'), add_favorite_recipe_path(@recipe), id: 'favorite' %></p>
+    <%end %>
+  </div>
+</div>

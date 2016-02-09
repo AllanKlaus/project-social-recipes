@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  # layout "application_without_side_menu", only: [:new, :edit]
   before_action :authenticate_user!, only: [:new, :create, :my,
                                             :add_favorite, :favorite]
   before_action :set_recipe, only: [:show, :edit, :update,
@@ -49,6 +50,8 @@ class RecipesController < ApplicationController
   end
 
   def favorite
+    @recipes = Recipe.joins(favorites: :user)
+                     .where(users: { id: current_user.id })
   end
 
   private

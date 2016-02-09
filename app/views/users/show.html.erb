@@ -13,7 +13,7 @@
       <%= t('generic.twitter') %>
       <span><%= @user.twitter %></span>
     <% end %>
-    <h2><%= "#{t('generic.receitas')} #{@user.name}" %></h2>
-    <%= render partial: 'recipe', collection: @user.recipes, as: :item %>
+    <h2><%= "#{t('generic.recipes')} #{@user.name}" %></h2>
+    <%= render partial: 'shared/recipes', collection: @user.recipes, as: :item %>
   </section>
 </div>
