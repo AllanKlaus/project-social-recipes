@@ -43,8 +43,13 @@ en:
     Medium: 'Medium'
     Hard: 'Hard'
 
+    search: 'Search'
+
     menu:
       options: 'Options'
+
+  info:
+    no_result: "There is no results for %{result}"
 
   mail:
     success: "Your message was send to %{friend}"

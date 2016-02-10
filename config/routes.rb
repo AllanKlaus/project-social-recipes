@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'my'
       get 'favorite'
+      post 'search'
     end
 
     member do

@@ -1,4 +1,10 @@
 <h1><%= t('generic.recipes') %></h1>
 <div class="row">
-  <%= render partial: 'shared/recipes', collection: @recipes, as: :item %>
+  <% if !@recipes.empty? %>
+    <%= render partial: 'shared/recipes', collection: @recipes, as: :item %>
+  <% else %>
+    <div class="col-md-5">
+      <%= t('info.no_result', result: 'recipes') %>
+    </div>
+  <% end %>
 </div>

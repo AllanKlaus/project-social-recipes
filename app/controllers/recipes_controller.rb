@@ -66,6 +66,11 @@ class RecipesController < ApplicationController
     render 'recommend'
   end
 
+  def search
+    @recipes = Recipe.where("name LIKE ?", "%#{search_params[:search]}%")
+    render :index
+  end
+
   private
 
   def recipe_params
@@ -73,6 +78,10 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :kitchen_id, :food_type_id,
                                    :preference_id, :serves, :time, :difficulty,
                                    :ingredients, :steps, :photo).merge(user)
+  end
+
+  def search_params
+    params.require(:recipe).permit(:search)
   end
 
   def recommend_params
