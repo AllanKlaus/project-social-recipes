@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1><%= @recipe.name %></h1>
+    <p><strong><%= t('generic.send_by') %>: </strong><%= link_to @recipe.user.name, user_path(@recipe.user) %> </p>
+    <p><strong><%= t('generic.kitchen') %>: </strong><%= @recipe.kitchen.name %></p>
+    <p><strong><%= t('generic.food_type') %>: </strong><%= @recipe.food_type.name %></p>
+    <p><strong><%= t('generic.preference') %>: </strong><%= @recipe.preference.name %></p>
+    <p><strong><%= t('generic.serves') %>: </strong><%= @recipe.serves %></p>
+    <p><strong><%= t('generic.prepare_time') %>: </strong><%= @recipe.time %></p>
+    <p><strong><%= t('generic.difficulty') %>: </strong><%= @recipe.difficulty %></p>
+  </div>
+  <div class="col-md-6">
+    <p><%= image_tag @recipe.photo.url(:thumb) %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <% unless @friend.nil? %>
+      <h3><%= t('mail.success', friend: @friend[:name]) %></h3>
+    <% end %>
+    <%= form_tag(url: recommend_recipe_path(@recipe)) do |f| %>
+    <div class="form-group">
+      <%= label_tag :name, t('generic.name') %>
+      <%= text_field_tag :name, '', class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :mail, t('generic.email') %>
+      <%= email_field_tag :mail, '', class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :message, t('generic.message') %>
+      <%= email_field_tag :message, '', class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag t('generic.submit'), id: 'submit', class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+
+  </div>
+</div>

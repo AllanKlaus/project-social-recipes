@@ -47,5 +47,6 @@ en:
       options: 'Options'
 
   mail:
+    success: "Your message was send to %{friend}"
     subject:
       send_recipe: 'A friend recommend you a recipe'

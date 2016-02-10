@@ -1,9 +1,11 @@
 class RecipesController < ApplicationController
   # layout "application_without_side_menu", only: [:new, :edit]
   before_action :authenticate_user!, only: [:new, :create, :my,
-                                            :add_favorite, :favorite]
+                                            :add_favorite, :favorite,
+                                            :recommend, :send_recommend]
   before_action :set_recipe, only: [:show, :edit, :update,
-                                    :destroy, :add_favorite]
+                                    :destroy, :add_favorite,
+                                    :recommend, :send_recommend]
   before_action only: [:edit, :update, :destroy] do
     authenticate_owner_user!(@recipe, my_recipes_path)
   end
@@ -54,6 +56,16 @@ class RecipesController < ApplicationController
                      .where(users: { id: current_user.id })
   end
 
+  def recommend
+    @user = User.new
+  end
+
+  def send_recommend
+    current_user.send_recipe(current_user, @recipe, recommend_params)
+    @friend = recommend_params
+    render 'recommend'
+  end
+
   private
 
   def recipe_params
@@ -61,6 +73,11 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :kitchen_id, :food_type_id,
                                    :preference_id, :serves, :time, :difficulty,
                                    :ingredients, :steps, :photo).merge(user)
+  end
+
+  def recommend_params
+    subject = { subject: t('mail.subject.send_recipe') }
+    params.permit(:name, :mail, :message).merge(subject)
   end
 
   def set_recipe
