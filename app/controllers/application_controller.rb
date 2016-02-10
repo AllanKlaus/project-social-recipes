@@ -1,17 +1,25 @@
 require 'application_responder'
 
 class ApplicationController < ActionController::Base
+  before_action :set_locale
   before_action :side_menu
+
   NUMBER_TO_LIST = 20
 
   self.responder = ApplicationResponder
   respond_to :html
 
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   protected
+
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge options
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 
   def side_menu
     @side_kitchens = Kitchen.all.order(name: :asc)

@@ -1,21 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'home#index'
-  resources :recipes do
-    collection do
-      get 'my'
-      get 'favorite'
-      post 'search'
-    end
+  # scope "(:locale)", locale: /en|pt/ do
+    devise_for :users
+    root 'home#index'
+    resources :recipes do
+      collection do
+        get 'my'
+        get 'favorite'
+        post 'search'
+      end
 
-    member do
-      get 'add_favorite'
-      get  'recommend'
-      post 'recommend', to: 'recipes#send_recommend'
+      member do
+        get 'add_favorite'
+        get  'recommend'
+        post 'recommend', to: 'recipes#send_recommend'
+      end
     end
-  end
-  resources :kitchens, except: :destroy
-  resources :food_types, except: :destroy
-  resources :preferences, except: :destroy
-  resources :users, except: :destroy
+    resources :kitchens, except: :destroy
+    resources :food_types, except: :destroy
+    resources :preferences, except: :destroy
+    resources :users, except: :destroy
+  # end
 end

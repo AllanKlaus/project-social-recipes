@@ -12,6 +12,13 @@
     <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
         <li><%= link_to t('generic.menu.home'), root_path %></li>
+        <li class="dropdown">
+          <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><%= t('generic.menu.language.language') %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to t('generic.menu.language.english'), url_for(locale: 'en'), id: 'change_to_en' %></li>
+            <li><%= link_to t('generic.menu.language.portuguese'), url_for(locale: 'pt'), id: 'change_to_pt' %></li>
+          </ul>
+        </li>
         <li><%= render 'shared/search' %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

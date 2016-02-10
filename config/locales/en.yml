@@ -44,9 +44,15 @@ en:
     Hard: 'Hard'
 
     search: 'Search'
+    last_recipes: 'Last Recipes'
+    favorite_recipes: 'Favorite Recipes'
 
     menu:
       options: 'Options'
+      language:
+        language: 'Language'
+        english: 'English'
+        portuguese: 'Portuguese'
 
   info:
     no_result: "There is no results for %{result}"
