@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.where("name LIKE ?", "%#{search_params[:search]}%")
+    @recipes = Recipe.where('name LIKE ?', "%#{search_params[:search]}%")
     render :index
   end
 
@@ -99,13 +99,3 @@ class RecipesController < ApplicationController
     @preferences = Preference.all
   end
 end
-# user = User.create(email: 'email@email.com', password: '12345687')
-# food = FoodType.create(name: 'FoodType')
-# preference = Preference.create(name: 'Preference')
-# kitchen = Kitchen.create(name: 'Kitchen')
-# 5.times do |index|
-# Recipe.create(name: "Recipe #{index}", kitchen:kitchen, food_type:food,
-# preference:preference, serves: '10', time:'60', difficulty: 'Easy',
-# user: user)
-# end
-# Recipe.joins(favorites: :user).where(users: {id: user2.id})

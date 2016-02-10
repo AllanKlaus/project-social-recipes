@@ -56,7 +56,7 @@ feature 'User see links to recipe' do
   end
 
   scenario 'on my favorites recipes path' do
-    user = login
+    login
 
     recipe = create(:recipe)
     visit recipe_path(recipe)

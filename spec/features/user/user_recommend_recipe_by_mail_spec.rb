@@ -24,7 +24,6 @@ feature 'User recommend a recipe' do
 
   scenario 'see link on recipe page' do
     login
-    user = build(:user)
     recipe = create(:recipe)
     visit recipe_path(recipe)
 

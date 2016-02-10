@@ -15,7 +15,7 @@ feature 'User edit his profile' do
     fill_in 'user[twitter]',  with: user.twitter
     check   'kitchen_1'
     check   'kitchen_2'
-    fill_in 'user[current_password]',  with: user.password
+    fill_in 'user[current_password]', with: user.password
 
     click_on 'submit'
 
@@ -34,7 +34,7 @@ feature 'User edit his profile' do
     fill_in 'user[facebook]', with: user.facebook
     fill_in 'user[twitter]',  with: user.twitter
     check   'kitchen_1'
-    fill_in 'user[current_password]',  with: user.password
+    fill_in 'user[current_password]', with: user.password
 
     click_on 'submit'
 

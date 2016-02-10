@@ -9,7 +9,8 @@ describe 'User send mail' do
                  subject: I18n.t('mail.subject.send_recipe'),
                  message: FFaker::Lorem.paragraph(2) }
       expect { user.send_recipe(user, recipe, friend) }.to change {
-        ActionMailer::Base.deliveries.count }.by(1)
+        ActionMailer::Base.deliveries.count
+      }.by(1)
     end
   end
 end

@@ -21,7 +21,6 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
-
   private
 
   def set_kitchens
@@ -29,7 +28,8 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def sign_up_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :city)
+    params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation, :city)
   end
 
   def account_update_params
@@ -39,6 +39,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def kitchens_params
-    params.require(:user).permit(:kitchens => [])
+    params.require(:user).permit(kitchens: [])
   end
 end

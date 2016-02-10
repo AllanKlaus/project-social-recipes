@@ -14,12 +14,13 @@ feature 'User create account' do
     click_on 'submit'
     expect(User.last.name).to eq user.name
   end
-    scenario 'unsuccessfully' do
-      visit new_user_registration_path
 
-      click_on 'submit'
-      expect(page).to have_content I18n.t('errors.messages.blank')
-    end
+  scenario 'unsuccessfully' do
+    visit new_user_registration_path
+
+    click_on 'submit'
+    expect(page).to have_content I18n.t('errors.messages.blank')
+  end
 
   scenario 'successfully sending city' do
     user = build(:user, city: FFaker::Name.name)
