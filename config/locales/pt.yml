@@ -48,6 +48,7 @@ pt:
     favorite_recipes: 'Receitas Favoritas'
 
     cancel_account: 'Cancelar minha conta'
+    recommend_recipe: 'Recomende essa receita'
 
     menu:
       options: 'Opções'

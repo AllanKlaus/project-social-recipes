@@ -30,7 +30,10 @@
 <div class="row">
   <div class="col-md-6">
     <% if user_signed_in? %>
-      <p><%= link_to t('generic.add_favorite_list'), add_favorite_recipe_path(@recipe), id: 'favorite' %></p>
+      <p>
+        <%= link_to t('generic.add_favorite_list'), add_favorite_recipe_path(@recipe), id: 'favorite' %>
+        <%= link_to t('generic.recommend_recipe'), recommend_recipe_path(@recipe), id: 'recommend' %>
+      </p>
     <%end %>
   </div>
 </div>

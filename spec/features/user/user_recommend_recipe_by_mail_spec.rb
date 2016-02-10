@@ -28,7 +28,7 @@ feature 'User recommend a recipe' do
     recipe = create(:recipe)
     visit recipe_path(recipe)
 
-    click_on 'recommend'
+    click_on I18n.t('generic.recommend_recipe')
 
     expect(current_path).to eq recommend_recipe_path(recipe)
   end

@@ -48,6 +48,7 @@ en:
     favorite_recipes: 'Favorite Recipes'
 
     cancel_account: 'Cancel my account'
+    recommend_recipe: 'Recommend this recipe'
 
     menu:
       options: 'Options'
