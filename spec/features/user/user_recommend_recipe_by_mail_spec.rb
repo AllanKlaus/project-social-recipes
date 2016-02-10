@@ -21,4 +21,15 @@ feature 'User recommend a recipe' do
     visit recommend_recipe_path(recipe)
     expect(page).to have_content I18n.t('generic.login')
   end
+
+  scenario 'see link on recipe page' do
+    login
+    user = build(:user)
+    recipe = create(:recipe)
+    visit recipe_path(recipe)
+
+    click_on 'recommend'
+
+    expect(current_path).to eq recommend_recipe_path(recipe)
+  end
 end
