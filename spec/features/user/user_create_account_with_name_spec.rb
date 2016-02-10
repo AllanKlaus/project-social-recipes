@@ -12,7 +12,6 @@ feature 'User create account with his name' do
     fill_in 'user[password_confirmation]',  with: user.password
 
     click_on 'submit'
-
-    expect(User.last).to eq user.name
+    expect(User.last.name).to eq user.name
   end
 end
