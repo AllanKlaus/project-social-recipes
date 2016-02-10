@@ -47,6 +47,8 @@ pt:
     last_recipes: 'Últimas Recieitas'
     favorite_recipes: 'Receitas Favoritas'
 
+    cancel_account: 'Cancelar minha conta'
+
     menu:
       options: 'Opções'
       language:

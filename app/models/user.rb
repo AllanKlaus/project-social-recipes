@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   validates :name, :email, presence: true
 
   def send_recipe(user, recipe, friend)
-    # byebug
     UserNotifier.send_recipe(user, recipe, friend).deliver_now
   end
 end

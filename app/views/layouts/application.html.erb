@@ -25,6 +25,9 @@
         </ul>
       </aside>
       <div class="col-md-9">
+        <p>
+          <%= flash[:notice] %>
+        </p>
         <%= yield %>
       </div>
     </div>
