@@ -3,13 +3,13 @@
     <div class="col-md-5 text-center">
       <%= image_tag item.photo.url(:thumb), class: "img-thumbnail" %>
       <p>
-        <%= link_to t('edit'), edit_recipe_path(item), id: "edit_#{item.name}", class: 'btn btn-primary' %>
-        <%= link_to t('delete'), item, method: :delete, id: item.name, class: 'btn btn-primary' %>
+        <%= link_to t('generic.edit'), edit_recipe_path(item), id: "edit_#{item.name}", class: 'btn btn-primary' %>
+        <%= link_to t('generic.delete'), item, method: :delete, id: "delete_#{item.name}", class: 'btn btn-primary' %>
       </p>
     </div>
     <div class="col-md-7">
       <p>
-        <%= item.name %>
+        <%= link_to item.name, recipe_path(item) %>
       </p>
       <p>
         <strong><%= t('generic.preference') %>: </strong>

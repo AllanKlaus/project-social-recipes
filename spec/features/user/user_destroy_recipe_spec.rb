@@ -6,7 +6,7 @@ feature 'User destroy his recipe' do
     recipe = create_list(:recipe, 5, user: user)
     visit my_recipes_path
 
-    click_on recipe[0].name
+    click_on "delete_#{recipe[0].name}"
 
     expect(page).to_not have_content recipe[0].name
     expect(page).to have_content recipe[1].name
