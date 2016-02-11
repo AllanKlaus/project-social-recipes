@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User send mail' do
+describe 'User model' do
   context 'user send recipe' do
     it 'send a recipe' do
       user = create(:user)
@@ -11,6 +11,13 @@ describe 'User send mail' do
       expect { user.send_recipe(user, recipe, friend) }.to change {
         ActionMailer::Base.deliveries.count
       }.by(1)
+    end
+  end
+
+  context 'save slug' do
+    it 'do slug' do
+      user = create(:user)
+      expect(user.slug).to to_slug(user.name)
     end
   end
 end

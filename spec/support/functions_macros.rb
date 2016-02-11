@@ -10,4 +10,24 @@ module FunctionsMacros
 
     user
   end
+
+  def to_slug(text)
+    ret = text.strip
+
+    ret.gsub! /['`]/,""
+    ret.gsub! /\s*@\s*/, " at "
+    ret.gsub! /\s*&\s*/, " and "
+    ret.gsub! /\s*[^A-Za-z0-9\-]\s*/, '_'
+    ret.gsub! /_+/,"_"
+    ret.gsub! /\A[_\.]+|[_\.]+\z/,""
+
+    #  ret.gsub! %w{['`]},""
+    #  ret.gsub! %w{\s*@\s*}, " at "
+    #  ret.gsub! %w{\s*&\s*}, " and "
+    #  ret.gsub! %w{\s*[^A-Za-z0-9\.\-]\s*}, '_'
+    #  ret.gsub! %w{_+},"_"
+    #  ret.gsub! %w{\A[_\.]+|[_\.]+\z},""
+
+    ret.downcase
+  end
 end
