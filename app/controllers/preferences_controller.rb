@@ -26,6 +26,6 @@ class PreferencesController < ApplicationController
   end
 
   def set_preference
-    @preference = Preference.friendly.find(params[:id])
+    @preference = Preference.friendly.find(params[:id]).decorate
   end
 end

@@ -17,17 +17,20 @@ feature 'Admin see options' do
   end
 
   scenario 'Admin see edit kitchen option' do
-    visit kitchens_path
-    expect(page).to have_content I18n.t('generic.edit_kitchen')
+    login_admin
+    visit kitchen_path(create(:kitchen))
+    expect(page).to have_content I18n.t('generic.edit')
   end
 
   scenario 'Admin see edit preference option' do
-    visit preferences_path
-    expect(page).to have_content I18n.t('generic.edit_preference')
+    login_admin
+    visit preference_path(create(:preference))
+    expect(page).to have_content I18n.t('generic.edit')
   end
 
   scenario 'Admin see edit food type option' do
-    visit food_types_path
-    expect(page).to have_content I18n.t('generic.edit_food_type')
+    login_admin
+    visit food_type_path(create(:food_type))
+    expect(page).to have_content I18n.t('generic.edit')
   end
 end

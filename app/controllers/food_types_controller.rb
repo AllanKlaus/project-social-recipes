@@ -26,6 +26,6 @@ class FoodTypesController < ApplicationController
   end
 
   def set_food_type
-    @food_type = FoodType.friendly.find(params[:id])
+    @food_type = FoodType.friendly.find(params[:id]).decorate
   end
 end

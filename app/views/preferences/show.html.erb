@@ -1,4 +1,4 @@
-<h1><%= @preference.name %></h1>
+<%= render partial: 'shared/options_show', locals: {option: @preference} %>
 <div class="row">
   <%= render partial: 'shared/recipes', collection: @recipes, as: :item %>
 </div>
