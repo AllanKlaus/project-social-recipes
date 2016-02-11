@@ -11,6 +11,10 @@ module FunctionsMacros
     user
   end
 
+  def login_admin
+    login(create(:user, admin true))
+  end
+
   def to_slug(text)
     ret = text.strip
 
