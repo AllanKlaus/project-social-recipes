@@ -1,6 +1,6 @@
 class FoodTypesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create]
-  before_action :set_food_type, only: [:show]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
+  before_action :set_food_type, only: [:show, :edit, :update]
 
   def index
     @food_types = FoodType.all
@@ -16,6 +16,14 @@ class FoodTypesController < ApplicationController
 
   def create
     @food_type = FoodType.create(food_type_params)
+    respond_with @food_type
+  end
+
+  def edit
+  end
+
+  def update
+    @food_type.update(food_type_params)
     respond_with @food_type
   end
 

@@ -1,6 +1,6 @@
 class PreferencesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create]
-  before_action :set_preference, only: [:show]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
+  before_action :set_preference, only: [:show, :edit, :update]
 
   def index
     @preferences = Preference.all
@@ -16,6 +16,14 @@ class PreferencesController < ApplicationController
 
   def create
     @preference = Preference.create(preference_params)
+    respond_with @preference
+  end
+
+  def edit
+  end
+
+  def update
+    @preference.update(preference_params)
     respond_with @preference
   end
 

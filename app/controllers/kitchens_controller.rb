@@ -1,6 +1,6 @@
 class KitchensController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create]
-  before_action :set_kitchen, only: [:show]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
+  before_action :set_kitchen, only: [:show, :edit, :update]
 
   def index
     @kitchens = Kitchen.all
@@ -16,6 +16,14 @@ class KitchensController < ApplicationController
 
   def create
     @kitchen = Kitchen.create(kitchen_params)
+    respond_with @kitchen
+  end
+
+  def edit
+  end
+
+  def update
+    @kitchen.update(kitchen_params)
     respond_with @kitchen
   end
 
