@@ -18,6 +18,7 @@ feature 'User access another user profile' do
 
   scenario 'has faceboook' do
     user = create(:user, facebook: 'facebook')
+    href = 'https://www.facebook.com/facebook'
 
     visit user_path(user)
 
@@ -25,11 +26,15 @@ feature 'User access another user profile' do
     expect(page).to have_content user.city
 
     expect(page).to have_content I18n.t('generic.facebook')
+    expect(page).to have_selector "a[href='#{href}']", text: I18n.t('generic.facebook')
     expect(page).to_not have_content I18n.t('generic.twitter')
+
+
   end
 
   scenario 'has twitter' do
     user = create(:user, twitter: 'twitter')
+    href = 'https://www.twitter.com/twitter'
 
     visit user_path(user)
 
@@ -38,5 +43,6 @@ feature 'User access another user profile' do
 
     expect(page).to_not have_content I18n.t('generic.facebook')
     expect(page).to have_content I18n.t('generic.twitter')
+    expect(page).to have_selector "a[href='#{href}']", text: I18n.t('generic.twitter')
   end
 end
