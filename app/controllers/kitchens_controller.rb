@@ -26,6 +26,6 @@ class KitchensController < ApplicationController
   end
 
   def set_kitchen
-    @kitchen = Kitchen.find(params[:id])
+    @kitchen = Kitchen.friendly.find(params[:id])
   end
 end

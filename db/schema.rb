@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211131429) do
+ActiveRecord::Schema.define(version: 20160211141445) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -23,11 +23,17 @@ ActiveRecord::Schema.define(version: 20160211131429) do
 
   create_table "food_types", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
   end
+
+  add_index "food_types", ["slug"], name: "index_food_types_on_slug"
 
   create_table "kitchens", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
   end
+
+  add_index "kitchens", ["slug"], name: "index_kitchens_on_slug"
 
   create_table "kitchens_users", force: :cascade do |t|
     t.integer "user_id"
@@ -39,7 +45,10 @@ ActiveRecord::Schema.define(version: 20160211131429) do
 
   create_table "preferences", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
   end
+
+  add_index "preferences", ["slug"], name: "index_preferences_on_slug"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
@@ -56,11 +65,13 @@ ActiveRecord::Schema.define(version: 20160211131429) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "user_id"
+    t.string   "slug"
   end
 
   add_index "recipes", ["food_type_id"], name: "index_recipes_on_food_type_id"
   add_index "recipes", ["kitchen_id"], name: "index_recipes_on_kitchen_id"
   add_index "recipes", ["preference_id"], name: "index_recipes_on_preference_id"
+  add_index "recipes", ["slug"], name: "index_recipes_on_slug"
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
 
   create_table "users", force: :cascade do |t|

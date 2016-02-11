@@ -1,4 +1,7 @@
 class Recipe < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   belongs_to :kitchen
   belongs_to :food_type
   belongs_to :preference

@@ -4,6 +4,7 @@ describe 'Recipe model' do
   context 'save slug' do
     it 'do slug' do
       recipe = create(:recipe)
+      puts recipe.slug
       expect(recipe.slug).to eq to_slug(recipe.name)
     end
 
