@@ -90,7 +90,7 @@ class RecipesController < ApplicationController
   end
 
   def set_recipe
-    @recipe = Recipe.friendly.find(params[:id])
+    @recipe = Recipe.friendly.find(params[:id]).decorate
   end
 
   def set_collections

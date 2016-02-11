@@ -4,7 +4,7 @@
     <%= render partial: 'shared/recipes', collection: @recipes, as: :item %>
   <% else %>
     <div class="col-md-5">
-      <%= t('info.no_result', result: 'recipes') %>
+      <%= t('info.no_result', result: t('generic.recipes')) %>
     </div>
   <% end %>
 </div>

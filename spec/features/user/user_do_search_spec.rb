@@ -33,7 +33,7 @@ feature 'User do search' do
     fill_in 'recipe[search]', with: 'no results'
     click_on 'search'
 
-    expect(page).to have_content I18n.t('info.no_result', result: 'recipes')
+    expect(page).to have_content I18n.t('info.no_result', result: I18n.t('generic.recipes'))
     expect(page).to_not have_content recipe[0].name
     expect(page).to_not have_content recipe[1].name
   end
