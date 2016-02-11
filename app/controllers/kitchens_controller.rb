@@ -1,6 +1,7 @@
 class KitchensController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
-  before_action :set_kitchen, only: [:show, :edit, :update]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update,
+                                             :destroy]
+  before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
 
   def index
     @kitchens = Kitchen.all
@@ -28,6 +29,8 @@ class KitchensController < ApplicationController
   end
 
   def destroy
+    @kitchen.destroy
+    redirect_to root_path
   end
 
   private

@@ -1,6 +1,7 @@
 class PreferencesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
-  before_action :set_preference, only: [:show, :edit, :update]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update,
+                                             :destroy]
+  before_action :set_preference, only: [:show, :edit, :update, :destroy]
 
   def index
     @preferences = Preference.all
@@ -28,6 +29,8 @@ class PreferencesController < ApplicationController
   end
 
   def destroy
+    @preference.destroy
+    redirect_to root_path
   end
 
   private

@@ -43,6 +43,7 @@ feature 'Admin edit and delete options' do
   scenario 'Admin delete kitchen' do
     login_admin
     kitchen = create(:kitchen)
+    create(:recipe, kitchen: kitchen)
     all_kitchens = Kitchen.all.count
 
     visit kitchen_path(kitchen)
@@ -55,18 +56,20 @@ feature 'Admin edit and delete options' do
   scenario 'Admin delete preference' do
     login_admin
     preference = create(:preference)
+    create(:recipe, preference: preference)
     all_preferences = Preference.all.count
 
     visit preference_path(preference)
 
     click_on I18n.t('generic.delete')
 
-    expect(all_preferences - 1).to eq Preference.all.count 
+    expect(all_preferences - 1).to eq Preference.all.count
   end
 
   scenario 'Admin delete foot type' do
     login_admin
     food_type = create(:food_type)
+    create(:recipe, food_type: food_type)
     all_food_types = FoodType.all.count
 
     visit food_type_path(food_type)

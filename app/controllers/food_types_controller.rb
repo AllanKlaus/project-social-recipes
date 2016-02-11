@@ -1,6 +1,7 @@
 class FoodTypesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
-  before_action :set_food_type, only: [:show, :edit, :update]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update,
+                                             :destroy]
+  before_action :set_food_type, only: [:show, :edit, :update, :destroy]
 
   def index
     @food_types = FoodType.all
@@ -28,6 +29,8 @@ class FoodTypesController < ApplicationController
   end
 
   def destroy
+    @food_type.destroy
+    redirect_to root_path
   end
 
   private
