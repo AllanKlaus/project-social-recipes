@@ -4,6 +4,6 @@ FactoryGirl.define do
   end
 
   sequence :kitchen_name do |n|
-    "Kitchen #{n} #{FFaker::Name.name}"
+    "Kitchen #{n} #{FFaker::Name.first_name}"
   end
 end

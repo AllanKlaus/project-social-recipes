@@ -4,6 +4,6 @@ FactoryGirl.define do
   end
 
   sequence :food_name do |n|
-    "FoodType #{n} #{FFaker::Name.name}"
+    "FoodType #{n} #{FFaker::Name.first_name}"
   end
 end

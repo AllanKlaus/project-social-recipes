@@ -13,6 +13,6 @@ FactoryGirl.define do
   end
 
   sequence :name do |n|
-    "Recipe #{n} #{FFaker::Name.name}"
+    "Recipe #{n} #{FFaker::Name.first_name}"
   end
 end

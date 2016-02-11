@@ -4,6 +4,6 @@ FactoryGirl.define do
   end
 
   sequence :preference_name do |n|
-    "Preference #{n} #{FFaker::Name.name}"
+    "Preference #{n} #{FFaker::Name.first_name}"
   end
 end

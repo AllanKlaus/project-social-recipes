@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     email
-    name      FFaker::Name.name
+    name      FFaker::Name.first_name
     password  FFaker::Internet.password(8)
     admin     false
 
