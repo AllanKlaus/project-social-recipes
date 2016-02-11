@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     authenticate_user!
-    sign_out_and_redirect(current_user) if !current_user.admin
+    sign_out_and_redirect(current_user) unless current_user.admin
   end
 
   def authenticate_owner_user!(object, path)

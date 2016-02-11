@@ -6,12 +6,11 @@
     <span><%= @user.email %></span>
     <span><%= @user.city %></span>
     <% unless @user.facebook.nil? %>
-      <%= t('generic.facebook') %>
-      <span><%= @user.facebook %></span>
+
+      <span><%= link_to t('generic.facebook') , "https://www.facebook.com/#{@user.facebook}", target: '_blank' %></span>
     <% end %>
     <% unless @user.twitter.nil? %>
-      <%= t('generic.twitter') %>
-      <span><%= @user.twitter %></span>
+      <span><%= link_to t('generic.twitter') , "https://www.twitter.com/#{@user.twitter}", target: '_blank' %></span>
     <% end %>
     <h2><%= "#{t('generic.recipes')} #{@user.name}" %></h2>
     <%= render partial: 'shared/recipes', collection: @user.recipes, as: :item %>
