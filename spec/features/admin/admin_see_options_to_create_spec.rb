@@ -16,21 +16,24 @@ feature 'Admin see options' do
     expect(page).to_not have_content I18n.t('generic.menu.admin_options')
   end
 
-  scenario 'Admin see edit kitchen option' do
+  scenario 'Admin see kitchens options' do
     login_admin
     visit kitchen_path(create(:kitchen))
     expect(page).to have_content I18n.t('generic.edit')
+    expect(page).to have_content I18n.t('generic.delete')
   end
 
-  scenario 'Admin see edit preference option' do
+  scenario 'Admin see preferences options' do
     login_admin
     visit preference_path(create(:preference))
     expect(page).to have_content I18n.t('generic.edit')
+    expect(page).to have_content I18n.t('generic.delete')
   end
 
-  scenario 'Admin see edit food type option' do
+  scenario 'Admin see food types options' do
     login_admin
     visit food_type_path(create(:food_type))
     expect(page).to have_content I18n.t('generic.edit')
+    expect(page).to have_content I18n.t('generic.delete')
   end
 end
