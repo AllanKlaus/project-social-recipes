@@ -19,6 +19,9 @@ class FoodTypesController < ApplicationController
     respond_with @food_type
   end
 
+  def destroy
+  end
+
   private
 
   def food_type_params

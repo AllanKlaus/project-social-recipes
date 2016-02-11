@@ -36,8 +36,8 @@ en:
     name: 'Name'
     photo: 'Photo'
 
-    edit: 'edit'
-    delete: 'delete'
+    edit: 'Edit'
+    delete: 'Delete'
 
     Easy: 'Easy'
     Medium: 'Medium'

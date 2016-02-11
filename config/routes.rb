@@ -15,9 +15,9 @@ Rails.application.routes.draw do
         post 'recommend', to: 'recipes#send_recommend'
       end
     end
-    resources :kitchens, except: :destroy
-    resources :food_types, except: :destroy
-    resources :preferences, except: :destroy
-    resources :users, except: :destroy
+    resources :kitchens
+    resources :food_types
+    resources :preferences
+    resources :users, only: :show
   # end
 end

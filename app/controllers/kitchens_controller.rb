@@ -19,6 +19,9 @@ class KitchensController < ApplicationController
     respond_with @kitchen
   end
 
+  def destroy
+  end
+
   private
 
   def kitchen_params

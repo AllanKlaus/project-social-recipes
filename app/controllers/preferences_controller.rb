@@ -19,6 +19,9 @@ class PreferencesController < ApplicationController
     respond_with @preference
   end
 
+  def destroy
+  end
+
   private
 
   def preference_params

@@ -36,8 +36,8 @@ pt:
     name: 'Nome'
     photo: 'Foto'
 
-    edit: 'editar'
-    delete: 'deletar'
+    edit: 'Editar'
+    delete: 'Deletar'
 
     Easy: 'Fácil'
     Medium: 'Médio'
