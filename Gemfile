@@ -16,6 +16,7 @@ gem 'devise'
 gem "paperclip", "~> 4.3"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'responders'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'rspec-rails'

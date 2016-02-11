@@ -17,7 +17,7 @@ describe 'User model' do
   context 'save slug' do
     it 'do slug' do
       user = create(:user)
-      expect(user.slug).to to_slug(user.name)
+      expect(user.slug).to eq to_slug(user.name)
     end
   end
 end
