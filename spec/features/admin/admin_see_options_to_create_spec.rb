@@ -16,23 +16,18 @@ feature 'Admin see options' do
     expect(page).to_not have_content I18n.t('generic.menu.admin_options')
   end
 
-  # scenario 'Admin see create preference option' do
-  #   visit root_path
-  # end
-  #
-  # scenario 'Admin see create food type option' do
-  #   visit root_path
-  # end
-  #
-  # scenario 'Admin see edit kitchen option' do
-  #   visit root_path
-  # end
-  #
-  # scenario 'Admin see edit preference option' do
-  #   visit root_path
-  # end
-  #
-  # scenario 'Admin see edit food type option' do
-  #   visit root_path
-  # end
+  scenario 'Admin see edit kitchen option' do
+    visit kitchens_path
+    expect(page).to have_content I18n.t('generic.edit_kitchen')
+  end
+
+  scenario 'Admin see edit preference option' do
+    visit preferences_path
+    expect(page).to have_content I18n.t('generic.edit_preference')
+  end
+
+  scenario 'Admin see edit food type option' do
+    visit food_types_path
+    expect(page).to have_content I18n.t('generic.edit_food_type')
+  end
 end

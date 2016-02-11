@@ -12,7 +12,7 @@ module FunctionsMacros
   end
 
   def login_admin
-    login(create(:user, admin true))
+    login(create(:user, admin: true))
   end
 
   def to_slug(text)

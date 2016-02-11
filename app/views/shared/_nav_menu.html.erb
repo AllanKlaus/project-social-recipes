@@ -21,6 +21,18 @@
         </li>
         <li><%= render 'shared/search' %></li>
       </ul>
+      <% if user_admin? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><%= t('generic.menu.admin_options') %><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('generic.menu.create_kitchen'), new_kitchen_path %></li>
+              <li><%= link_to t('generic.menu.create_preference'), new_preference_path %></li>
+              <li><%= link_to t('generic.menu.create_foot_type'), new_food_type_path %></li>
+            </ul>
+          </li>
+        </ul>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><%= t('generic.menu.options') %><span class="caret"></span></a>

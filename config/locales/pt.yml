@@ -52,6 +52,11 @@ pt:
 
     menu:
       options: 'Opções'
+      admin_options: 'Opções do Admin'
+      create_kitchen: 'Criar Cozinha'
+      create_preference: 'Criar Preferência'
+      create_foot_type: 'Criar Tipo de comida'
+
       language:
         language: 'Idioma'
         english: 'Inglês'
