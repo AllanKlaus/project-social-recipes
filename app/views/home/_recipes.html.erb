@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-5 text-center">
+      <%= image_tag item.photo.url(:thumb), class: "img-thumbnail" %>
+    </div>
+    <div class="col-md-7">
+      <p>
+        <%= link_to item.name, recipe_path(item) %>
+      </p>
+      <p>
+        <strong><%= t('generic.preference') %>: </strong>
+        <%= item.preference.name %>
+      </p>
+      <p>
+        <strong><%= t('generic.food_type') %>: </strong>
+        <%= item.food_type.name %>
+      </p>
+      <p>
+          <strong><%= t('generic.kitchen') %>: </strong>
+        <%= item.kitchen.name %>
+      </p>
+      <p>
+        <strong><%= t('generic.difficulty') %>: </strong>
+        <%= item.difficulty %>
+      </p>
+    </div>
+  </div>
+</div>
