@@ -3,9 +3,9 @@ User.create(name: 'admin', email: 'admin@email.com', password: '12345687',
 user = User.create(name: 'First user', email: 'user@email.com',
                    password: '12345687', slug: 'first-user')
 5.times do |n|
-  kitchen = FoodType.create(name: "FoodType #{n}", slug: "foodtype-#{n}")
+  kitchen = Kitchen.create(name: "FoodType #{n}", slug: "foodtype-#{n}")
   preference = Preference.create(name: "Preference #{n}", slug: "preference-#{n}")
-  food = Kitchen.create(name: "Kitchen #{n}", slug: "kitchen-#{n}")
+  food = FoodType.create(name: "Kitchen #{n}", slug: "kitchen-#{n}")
 
   Recipe.create(name: "Recipe #{n}", kitchen:kitchen, food_type:food,
                 preference:preference, serves: '10', time:'60',
