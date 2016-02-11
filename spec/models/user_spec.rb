@@ -19,5 +19,21 @@ describe 'User model' do
       user = create(:user)
       expect(user.slug).to eq to_slug(user.name)
     end
+
+    it "make sure that slug don't change on update" do
+      user = create(:user)
+      first_slug = user.slug
+      user.update(name: FFaker::Name::name)
+      expect(user.slug).to eq first_slug
+    end
+
+    it 'make sure that slugs are unique' do
+      name = FFaker::Name::name
+      user = create_list(:user, 3, name: name)
+
+      expect(user[0].slug).to_not eq to_slug(user[1].slug)
+      expect(user[0].slug).to_not eq to_slug(user[2].slug)
+      expect(user[1].slug).to_not eq to_slug(user[2].slug)
+    end
   end
 end
