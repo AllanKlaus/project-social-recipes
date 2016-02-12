@@ -110,12 +110,17 @@ class RecipesController < ApplicationController
                      .where(users: { id: current_user.id })
   end
 
+  def check_favorite
+    @favorite = Favorite.where('user_id = ? AND recipe_id = ?', current_user.id, @recipe.id)
+  end
+
   def create_favorite
-    Favorite.create(user: current_user, recipe: @recipe)
+    check_favorite
+    Favorite.create(user: current_user, recipe: @recipe) if @favorite.empty?
   end
 
   def destroy_favorite
-    @favorite = Favorite.where('user_id = ? AND recipe_id = ?', current_user.id, @recipe.id)
+    check_favorite
     @favorite[0].destroy
   end
 end
