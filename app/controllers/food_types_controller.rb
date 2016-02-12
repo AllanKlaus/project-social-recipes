@@ -8,7 +8,6 @@ class FoodTypesController < ApplicationController
   end
 
   def show
-    @recipes = Recipe.where(food_type_id: @food_type.id)
   end
 
   def new

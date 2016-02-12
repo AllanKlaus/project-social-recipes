@@ -1,15 +1,7 @@
-<div id="errors">
-  <% if @kitchen.errors.any? %>
-    <ul>
-      <% @kitchen.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
+<%= render partial: 'shared/errors', locals: {item: @kitchen} %>
 <%= form_for(@kitchen) do |f| %>
 <div class="form-group">
-  <%= f.label :name %>
+  <%= f.label :name, t('generic.kitchen') %>
   <%= f.text_field :name, class: 'form-control' %>
 </div>
 <div class="form-group">

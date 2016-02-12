@@ -1,4 +1,4 @@
 <%= render partial: 'shared/options_show', locals: {option: @food_type} %>
 <div class="row">
-  <%= render partial: 'shared/recipes', collection: @recipes, as: :item %>
+  <%= render partial: 'shared/recipes', collection: @food_type.recipes, as: :item %>
 </div>

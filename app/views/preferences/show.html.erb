@@ -1,4 +1,4 @@
 <%= render partial: 'shared/options_show', locals: {option: @preference} %>
 <div class="row">
-  <%= render partial: 'shared/recipes', collection: @recipes, as: :item %>
+  <%= render partial: 'shared/recipes', collection: @preference.recipes, as: :item %>
 </div>

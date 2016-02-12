@@ -29,8 +29,8 @@ pt:
     my_profile: 'Meu perfil'
     edit_profile: 'Editar perfil'
     send_by: 'Enviado por'
-    prepare_time: 'Tempo de preparo'
-    serves: 'Serve'
+    prepare_time: 'Tempo de preparo (minutos)'
+    serves: 'Serve (pessoas)'
     ingredients: 'Ingredientes'
     steps: 'Passos'
     name: 'Nome'
@@ -44,7 +44,7 @@ pt:
     Hard: 'Difícil'
 
     search: 'Procurar'
-    last_recipes: 'Últimas Recieitas'
+    last_recipes: 'Últimas Receitas'
     favorite_recipes: 'Receitas Favoritas'
 
     cancel_account: 'Cancelar minha conta'

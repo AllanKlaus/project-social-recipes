@@ -1,15 +1,7 @@
-<div id="errors">
-  <% if @preference.errors.any? %>
-    <ul>
-      <% @preference.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
+<%= render partial: 'shared/errors', locals: {item: @preference} %>
 <%= form_for(@preference) do |f| %>
 <div class="form-group">
-  <%= f.label :name %>
+  <%= f.label :name, t('generic.preference') %>
   <%= f.text_field :name, class: 'form-control' %>
 </div>
 <div class="form-group">

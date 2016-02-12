@@ -1,17 +1,10 @@
 <div class="row">
-  <aside class="">
-  </aside>
-  <section class="">
+  <section class="col-md-12">
     <h1><%= "#{t('generic.profile')} #{@user.name}" %></h1>
-    <span><%= @user.email %></span>
-    <span><%= @user.city %></span>
-    <% unless @user.facebook.nil? %>
-
-      <span><%= link_to t('generic.facebook') , "https://www.facebook.com/#{@user.facebook}", target: '_blank' %></span>
-    <% end %>
-    <% unless @user.twitter.nil? %>
-      <span><%= link_to t('generic.twitter') , "https://www.twitter.com/#{@user.twitter}", target: '_blank' %></span>
-    <% end %>
+    <p><%= @user.email %></p>
+    <p><%= @user.city %></p>
+    <%= @user.link_facebook %>
+    <%= @user.link_twitter %>
     <h2><%= "#{t('generic.recipes')} #{@user.name}" %></h2>
     <%= render partial: 'shared/recipes', collection: @user.recipes, as: :item %>
   </section>

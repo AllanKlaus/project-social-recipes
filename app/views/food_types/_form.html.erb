@@ -1,15 +1,7 @@
-<div id="errors">
-  <% if @food_type.errors.any? %>
-    <ul>
-      <% @food_type.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
+<%= render partial: 'shared/errors', locals: {item: @food_type} %>
 <%= form_for(@food_type) do |f| %>
 <div class="form-group">
-  <%= f.label :name, t('generic.name') %>
+  <%= f.label :name, t('generic.food_type') %>
   <%= f.text_field :name, class: 'form-control' %>
 </div>
 <div class="form-group">

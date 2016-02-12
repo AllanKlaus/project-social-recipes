@@ -48,7 +48,7 @@ class RecipesController < ApplicationController
   end
 
   def my
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.decorate
   end
 
   def add_favorite

@@ -1,12 +1,4 @@
-<div id="errors">
-  <% if @recipe.errors.any? %>
-    <ul>
-      <% @recipe.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
+<%= render partial: 'shared/errors', locals: {item: @recipe} %>
 <%= form_for(@recipe) do |f| %>
 <div class="form-group">
   <%= f.label :name, t('generic.name') %>
@@ -29,7 +21,7 @@
   <%= f.number_field :serves, class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :time, t('generic.time') %>
+  <%= f.label :time, t('generic.prepare_time') %>
   <%= f.number_field :time, class: 'form-control' %>
 </div>
 <div class="form-group">
