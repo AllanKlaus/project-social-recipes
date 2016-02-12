@@ -22,11 +22,12 @@ class RecipeDecorator < ApplicationDecorator
   end
 
   def link_add_to_favorite
-    h.link_to h.t('generic.add_favorite_list'), add_favorite_recipe_path(model), id: 'favorite'
+    link_to(h.t('generic.add_favorite_list'), add_favorite_recipe_path(model),
+            'favorite')
   end
 
   def link_recommend_recipe
-    h.link_to h.t('generic.recommend_recipe'), recommend_recipe_path(model), id: 'recommend'
+    link_to(h.t('generic.recommend_recipe'), recommend_recipe_path(model),
+            'recommend')
   end
-
 end

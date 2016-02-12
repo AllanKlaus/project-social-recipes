@@ -111,7 +111,8 @@ class RecipesController < ApplicationController
   end
 
   def check_favorite
-    @favorite = Favorite.where('user_id = ? AND recipe_id = ?', current_user.id, @recipe.id)
+    @favorite = Favorite.where('user_id = ? AND recipe_id = ?',
+                               current_user.id, @recipe.id)
   end
 
   def create_favorite
