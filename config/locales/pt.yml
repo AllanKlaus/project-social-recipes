@@ -17,7 +17,7 @@ pt:
     recipes: 'Receitas'
     characters_minimum: 'minimo de caracteres'
     leave_password_blank: "deixe em branco se você não quer mudar isso"
-    current_password: 'nós precisamos da sua senha atual para confirmar as mudanças'
+    current_password_msg: 'nós precisamos da sua senha atual para confirmar as mudanças'
     submit: 'Enviar'
     my_recipes: 'Minhas receitas'
     my_favorite_recipes: 'Minhas receitas favoritas'
@@ -35,6 +35,13 @@ pt:
     steps: 'Passos'
     name: 'Nome'
     photo: 'Foto'
+
+    email: 'Email'
+    city: 'Cidade'
+    password: 'Senha'
+    password_confirmation: 'Confirmação da senha'
+    current_password: 'Senha atual'
+    confirm?: 'Você tem certeza?'
 
     edit: 'Editar'
     delete: 'Deletar'
