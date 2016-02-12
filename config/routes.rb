@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
       member do
         get 'add_favorite'
+        get 'remove_favorite'
         get  'recommend'
         post 'recommend', to: 'recipes#send_recommend'
       end

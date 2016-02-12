@@ -4,12 +4,19 @@ class RecipesController < ApplicationController
                                             :add_favorite, :favorite,
                                             :recommend, :send_recommend]
   before_action :set_recipe, only: [:show, :edit, :update,
-                                    :destroy, :add_favorite,
+                                    :destroy, :add_favorite, :remove_favorite,
                                     :recommend, :send_recommend]
+
   before_action only: [:edit, :update, :destroy] do
     authenticate_owner_user!(@recipe, my_recipes_path)
   end
+
   before_action :set_collections, only: [:new, :create, :edit, :update]
+
+  before_action :create_favorite, only: [:add_favorite]
+  before_action :destroy_favorite, only: [:remove_favorite]
+  before_action :set_favorites, only: [:add_favorite, :favorite,
+                                       :remove_favorite]
 
   def index
     @recipes = Recipe.all
@@ -45,15 +52,14 @@ class RecipesController < ApplicationController
   end
 
   def add_favorite
-    Favorite.create(user: current_user, recipe: @recipe)
-    @recipes = Recipe.joins(favorites: :user)
-                     .where(users: { id: current_user.id })
+    render 'favorite'
+  end
+
+  def remove_favorite
     render 'favorite'
   end
 
   def favorite
-    @recipes = Recipe.joins(favorites: :user)
-                     .where(users: { id: current_user.id })
   end
 
   def recommend
@@ -97,5 +103,19 @@ class RecipesController < ApplicationController
     @kitchens = Kitchen.all
     @food_types = FoodType.all
     @preferences = Preference.all
+  end
+
+  def set_favorites
+    @recipes = Recipe.joins(favorites: :user)
+                     .where(users: { id: current_user.id })
+  end
+
+  def create_favorite
+    Favorite.create(user: current_user, recipe: @recipe)
+  end
+
+  def destroy_favorite
+    @favorite = Favorite.where('user_id = ? AND recipe_id = ?', current_user.id, @recipe.id)
+    @favorite[0].destroy
   end
 end
