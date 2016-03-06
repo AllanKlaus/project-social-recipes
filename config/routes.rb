@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  # scope "(:locale)", locale: /en|pt/ do
-    devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations' }
+
+  scope "(:locale)", locale: /en|pt/, defaults: { locale: :en } do
     root 'home#index'
     resources :recipes do
       collection do
@@ -20,5 +21,5 @@ Rails.application.routes.draw do
     resources :food_types
     resources :preferences
     resources :users, only: :show
-  # end
+  end
 end
